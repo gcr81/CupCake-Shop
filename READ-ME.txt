@@ -1,0 +1,24 @@
+Prerequisites
+
+Before you continue, ensure you have met the following requirements:
+•	Target Framework : .netcoreapp2.2
+•	Visual Studio 2019
+
+
+
+The application is on the Azure development environment website. Feel Free to click on the link
+http://cupcakeshops.azurewebsites.net/
+
+
+• In order to use the application at full capacity you should have an account.
+• The app has a detail page for all the products but to view details of the products you are required to log in with an account.
+
+• Photos on the menu page are chosen randomly from an inner class \(Cake). The only purpose for the photos on the main screen is for layout.
+  I thought of adding IMG datatypes(byte) but it will increase the size of the application.
+
+• For date-time I have used DateTimeOffset as a representation of instantaneous time.
+
+Feel free to reach out if you are having difficulty with running the application.
+
+E:Oligert.crroj@gmail.com   M:2896964486
+

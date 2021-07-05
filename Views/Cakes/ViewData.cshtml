@@ -1,0 +1,71 @@
+﻿@model IEnumerable<CupCakeShop.Models.Cake>
+
+@{
+    ViewData["Title"] = "ViewData";
+}
+
+<br />
+<h1 class="display-4 text-center " style="padding: 0px 50px 20px 0px;">Welcome to CupCake Store</h1>
+<br />
+
+
+<form class="form-inline float-right md-form mr-auto mb-4" asp-action="ShowSearchResultsCard" style="padding-right:90px;">
+
+    <input name="SearchPhrase" class="form-control mr-sm-2" type="text" aria-label="Search">
+    <button for="SearchPhrase" class="btn btn-outline-info  btn-group-lg my-0 " type="submit">Search</button>
+</form>
+
+
+
+
+
+<div class="container d-flex flex-wrap">
+    @foreach (var item in Model)
+    {
+       
+        <a style="text-decoration: none; color: black;" asp-action="Details" asp-route-id="@item.ID">
+            <div class="card" style="width:20em; margin:9px;">
+
+              
+                <img  id="btnSubmit" class="card-img-top" src=" @{ @Cake.RandomPicture();} " />
+                
+                <div class="card-body">
+                    <div class="card-footer">
+                        <h4>@item.CupCakeName</h4>
+                    </div>
+                    <div class="card-subtitle" style="padding-left:20px;">
+                        <h5>Price: @item.CupCakePrice$</h5>
+                    </div>
+                    <div class="card-img-bottom">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a class="float-sm-right  btn btn-outline-info border-light" asp-action="Details" asp-route-id="@item.ID">Details</a>
+                        }
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </a>
+    }
+</div>
+
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+    $('.card').hover(
+        function () {
+            $(this).animate({
+                marginTop: "-=1%",
+                marginBottom: "+=1%"
+            }, 200)
+        },
+        function () {
+            $(this).animate({
+                marginTop: "+=1%",
+                marginBottom: "-=1%"
+            })
+        }
+    )
+
+</script>
